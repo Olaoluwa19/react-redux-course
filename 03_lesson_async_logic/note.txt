@@ -1,5 +1,6 @@
 tools:
 npm install @reduxjs/toolkit react-redux
-
+npm i axios
+https://jsonplaceholder.typicode.com/
 
 
