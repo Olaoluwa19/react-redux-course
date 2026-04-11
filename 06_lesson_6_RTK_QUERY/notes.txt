@@ -1,0 +1,5 @@
+tools:
+npm install react-redux @reduxjs/toolkit
+npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+npm i json-server -g
