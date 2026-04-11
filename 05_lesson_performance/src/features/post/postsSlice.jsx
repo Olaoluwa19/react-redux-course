@@ -13,6 +13,7 @@ const initialState = {
   posts: [],
   status: "idle", // 'idle' || "loading" || "succeeded" || "failed"
   error: null,
+  count: 0,
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
@@ -61,35 +62,15 @@ const postSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    postAdded: {
-      reducer(state, action) {
-        state.posts.push(action.payload);
-      },
-      prepare(title, content, userId) {
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            content,
-            date: new Date().toISOString(),
-            userId,
-            reactions: {
-              thumbsUp: 0,
-              hooray: 0,
-              heart: 0,
-              rocket: 0,
-              eyes: 0,
-            },
-          },
-        };
-      },
-    },
     reactionAdded(state, action) {
       const { postId, reaction } = action.payload;
       const existingPost = state.posts.find((post) => post.id === postId);
       if (existingPost) {
         existingPost.reactions[reaction]++;
       }
+    },
+    increaseCount(state, action) {
+      state.count = state.count + 1;
     },
   },
   extraReducers(builder) {
@@ -160,6 +141,8 @@ const postSlice = createSlice({
 export const selectAllPosts = (state) => state.posts.posts;
 export const getpostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
+export const getCount = (state) => state.posts.count;
+
 export const selectPostById = (state, postId) =>
   state.posts.posts.find((post) => post.id === postId);
 export const selectPostsForUser = createSelector(
@@ -168,6 +151,6 @@ export const selectPostsForUser = createSelector(
     allPosts.filter((post) => post.userId === Number(userId)),
 );
 
-export const { postAdded, reactionAdded } = postSlice.actions;
+export const { reactionAdded, increaseCount } = postSlice.actions;
 
 export default postSlice.reducer;
