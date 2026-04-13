@@ -3,6 +3,4 @@ npm install @reduxjs/toolkit react-redux
 npm i axios
 https://jsonplaceholder.typicode.com/
 
-npm i json-server -g
-json-server --watch
  
