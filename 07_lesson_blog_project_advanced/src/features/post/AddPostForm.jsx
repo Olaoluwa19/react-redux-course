@@ -19,7 +19,7 @@ const AddPostForm = () => {
   const onContentChanged = (e) => setContent(e.target.value);
   const onAuthorChanged = (e) => setUserId(e.target.value);
 
-  const canSave = [title, content, userId].every(Boolean) && isLoading;
+  const canSave = [title, content, userId].every(Boolean) && !isLoading;
 
   const onSavedPostClicked = async () => {
     if (canSave) {
