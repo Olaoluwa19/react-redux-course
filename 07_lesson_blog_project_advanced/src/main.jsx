@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App.jsx";
 import { store } from "./app/store.jsx";
 import { Provider } from "react-redux";
-import { fetchPosts } from "./features/post/postsSlice.jsx";
+import { extendedApiSlice } from "./features/posts/postsSlice";
 import { fetchUsers } from "./features/users/usersSlice.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-store.dispatch(fetchPosts());
+store.dispatch(extendedApiSlice.endPoints.getPosts.initiate());
 store.dispatch(fetchUsers());
 
 createRoot(document.getElementById("root")).render(
