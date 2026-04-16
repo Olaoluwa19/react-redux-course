@@ -20,10 +20,10 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           if (!post?.reactions)
             post.reactions = {
               thumbsUp: 0,
-              wow: 0,
+              hooray: 0,
               heart: 0,
               rocket: 0,
-              coffee: 0,
+              eyes: 0,
             };
           return post;
         });
@@ -44,10 +44,10 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           if (!post?.reactions)
             post.reactions = {
               thumbsUp: 0,
-              wow: 0,
+              hooray: 0,
               heart: 0,
               rocket: 0,
-              coffee: 0,
+              eyes: 0,
             };
           return post;
         });
@@ -65,10 +65,10 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         body: {
           ...initialPost,
           userId: Number(initialPost.userId),
-          date: new DAte().toISOString(),
+          date: new Date().toISOString(),
           reactions: {
             thumbsUp: 0,
-            wow: 0,
+            hooray: 0,
             heart: 0,
             rocket: 0,
             coffe: 0,
