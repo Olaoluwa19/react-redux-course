@@ -6,7 +6,7 @@ import { selectAllUsers } from "../users/usersSlice";
 import { useAddNewPostMutation } from "./postsSlice";
 
 const AddPostForm = () => {
-  const [addNewPost, { isLoading }] = useAddNewPostMutation;
+  const [addNewPost, { isLoading }] = useAddNewPostMutation();
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
