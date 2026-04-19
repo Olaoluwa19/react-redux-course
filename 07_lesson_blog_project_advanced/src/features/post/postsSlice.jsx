@@ -140,7 +140,7 @@ export const {
   useAddReactionMutation,
 } = extendedApiSlice;
 
-// returns the query result oblect
+// returns the query result object
 export const selectPostsResult = extendedApiSlice.endpoints.getPosts.select();
 
 // create memoized selector
