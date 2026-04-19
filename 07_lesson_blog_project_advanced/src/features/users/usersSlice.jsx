@@ -1,29 +1,49 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { apiSlice } from "../api/apiSlice";
 
-const USERS_URL = "https://jsonplaceholder.typicode.com/users";
+// Adapter for normalization (optional but powerful)
+const usersAdapter = createEntityAdapter({
+  // Optional: sort users by name for consistent order
+  // sortComparer: (a, b) => a.name.localeCompare(b.name),
+});
+const initialState = usersAdapter.getInitialState();
 
-const initialState = [];
-
-export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const response = await axios.get(USERS_URL);
-  return response.data;
+export const extendedApiSlice = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getUsers: builder.query({
+      query: () => "/users",
+      transformResponse: (responseData) => {
+        // Normalize array → { ids: [...], entities: {...} }
+        return usersAdapter.setAll(initialState, responseData);
+      },
+      providesTags: (result, error, arg) => [
+        { type: "User", id: "LIST" },
+        ...result.ids.map((id) => ({ type: "User", id })),
+      ],
+    }),
+    getUserById: builder.query({
+      query: (id) => `/users/${id}`,
+      transformResponse: (responseData) => {
+        return usersAdapter.setOne(initialState, responseData);
+      },
+      providesTags: (result, error, id) => [
+        ...result.ids.map((id) => ({ type: "User", id })),
+      ],
+    }),
+  }),
 });
 
-const usersSlice = createSlice({
-  name: "users",
-  initialState,
-  reducers: {},
-  extraReducers(builder) {
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      return action.payload;
-    });
-  },
-});
+export const { useGetUsersQuery, useGetUserByIdQuery } = extendedApiSlice;
 
-export const selectAllUsers = (state) => state.users;
+//return query result object
+export const selectUsersResult = extendedApiSlice.endpoints.getUsers.select();
 
-export const selectUserById = (state, userId) =>
-  state.users.find((user) => user.id === userId);
+// create memoized selector
+const selectUsersData = createSelector(
+  selectUsersResult,
+  (usersResult) => usersResult.data ?? initialState, // normalized state object with ids and entities
+);
 
-export default usersSlice.reducer;
+//  getSelectors create these selectors and we rename them with aliases using destructuring
+export const { selectAll: selectAllUsers, selectById: selectUserById } =
+  usersAdapter.getSelectors((state) => selectUsersData(state));
