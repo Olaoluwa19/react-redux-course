@@ -282,37 +282,11 @@
       }
     },
     {
-      "userId": 1,
       "id": "8",
-      "title": "dolorem dolore est ipsam",
-      "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae",
-      "reactions": {
-        "thumbsUp": 4,
-        "wow": 0,
-        "heart": 3,
-        "rocket": 2,
-        "coffee": 6,
-        "eyes": 5
-      }
-    },
-    {
+      "title": "short title",
+      "body": "short post",
       "userId": 1,
-      "id": "10",
-      "title": "optio molestias id quia eum",
-      "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
-    },
-    {
-      "userId": 2,
-      "id": "11",
-      "title": "et ea vero quia laudantium autem",
-      "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 1,
-        "rocket": 1,
-        "eyes": 1
-      }
+      "date": "2026-04-19T13:44:17.868Z"
     },
     {
       "userId": 2,
@@ -330,7 +304,14 @@
       "userId": 2,
       "id": "14",
       "title": "voluptatem eligendi optio",
-      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
+      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum",
+      "reactions": {
+        "thumbsUp": 0,
+        "hooray": 0,
+        "heart": 4,
+        "rocket": 0,
+        "eyes": 3
+      }
     },
     {
       "userId": 2,
@@ -568,12 +549,6 @@
     },
     {
       "userId": 6,
-      "id": "55",
-      "title": "sit vel voluptatem et non libero",
-      "body": "debitis excepturi ea perferendis harum libero optio\neos accusamus cum fuga ut sapiente repudiandae\net ut incidunt omnis molestiae\nnihil ut eum odit"
-    },
-    {
-      "userId": 6,
       "id": "56",
       "title": "qui et at rerum necessitatibus",
       "body": "aut est omnis dolores\nneque rerum quod ea rerum velit pariatur beatae excepturi\net provident voluptas corrupti\ncorporis harum reprehenderit dolores eligendi"
@@ -754,12 +729,6 @@
     },
     {
       "userId": 9,
-      "id": "86",
-      "title": "placeat quia et porro iste",
-      "body": "quasi excepturi consequatur iste autem temporibus sed molestiae beatae\net quaerat et esse ut\nvoluptatem occaecati et vel explicabo autem\nasperiores pariatur deserunt optio"
-    },
-    {
-      "userId": 9,
       "id": "87",
       "title": "nostrum quis quasi placeat",
       "body": "eos et molestiae\nnesciunt ut a\ndolores perspiciatis repellendus repellat aliquid\nmagnam sint rem ipsum est"
@@ -906,6 +875,20 @@
         "coffe": 0
       },
       "id": "4Xu_mAue8SQ"
+    },
+    {
+      "title": "Addidng 1+2?",
+      "body": "School of memeology...",
+      "userId": 6,
+      "date": "2026-04-19T13:53:38.598Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "hooray": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffe": 0
+      },
+      "id": "U7Oil_Yjobs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
